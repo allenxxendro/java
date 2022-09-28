@@ -1,0 +1,106 @@
+//RESUME
+
+Package swing;
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class bio extends JFrame implements Action Listener
+{
+ JLabel lblName,lblAge,lblGender,lblSports,lblHobbies,lblAddress;
+ JtextField txtName,txtAge;
+ JtextArea txtAddress;
+ JRadioButton rdMale,rdFemale;
+ JcomboBox cbSports;
+ JcheckBox chkHindu,chkMuslim,chkChristian,chkOthers;
+ JButton btnAdd;
+
+ public bio()
+{
+ super("Form");
+ lblName=new JLabel("Name");
+ lblAge=new JLabel("Age");
+ lblGender=new JLabel("Gender");
+ lblSports=new JLabel("Sports");
+ lblHobbies=new JLabel("Hobbies");
+ lblAddress=new JLabel("Address");
+ 
+ txtName=new JTextField(10);
+ txtAge=new JTextField(10);
+ txtAddress=new JTextField(4,30);
+ txtMale=new JTextField("Male");
+ txtFemale=new JTextField("Female");
+ cbSports=new JcomboBox(new object[]{"cricket","hockey","tennis","football"});
+ btnAdd=new JButton("Add");
+
+ ButtonGroup gender=new ButtonGroup();
+ gender.add(rdMale);
+ gender.add(rdFemale);
+
+ JPanel p1=new JPanel();
+ JPanel p2=new JPanel();
+ JPanel p3=new JPanel();
+ JPanel p4=new JPanel();
+ JPanel p5=new JPanel();
+ JPanel p6=new JPanel();
+ JPanel p7=new JPanel();
+ 
+p1.add(lblName);
+p1.add(txtName);
+p2.add(lblAge);
+p2.add(txtAge);
+p3.add(lblGender);
+p4.add(rdMale);
+p4.add(rdFemale);
+p5.add(lblSports);
+p5.add(cbSports);
+p6.add(lblAddress);
+p7.add(btnAdd);
+
+Container con=get ContentPane();
+GridLayout g=new GridLayout(T,1);
+con.setLayout(g);
+con.add(p1);
+con.add(p2);
+con.add(p3);
+con.add(p4);
+con.add(p5);
+con.add(p6);
+con.add(p7);
+
+SetDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+btnAdd.addActionListener(this);
+SetSize(300,300);
+SetVisible(true);
+}
+ public void action Performed(Action Event ae)
+{
+ String msg=" ";
+ if(ae.getSource()==btnAge)
+ {
+  msg=msg+lblName.getText()+txtName.getText()+"\n";
+  msg=msg+lblAge.getText()+txtAge.getText()+"\n";
+  msg=msg+lblGender.getText();
+  if(rdMale.isSelected())
+  {
+   msg=msg+rdMale.getText()+"\n";
+  }
+   if(rdFemale.isSelected())
+  {
+   msg=msg+rdFemale.getText()+"\n";
+  }
+   msg=msg+lblsports.getText()+cbSports.getSelectedItem()+"\n";
+   msg=msg+lblAddress.getText()+txtAddress.getText()+"\n";
+   JOptionPane.showMessageDialog(this,msg);
+  }
+}
+ public static void main(String[] args)
+  {
+   new bio();
+  }
+ }
+
+
+
+ 
+ 

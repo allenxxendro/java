@@ -1,0 +1,129 @@
+//select statement
+package jdbc;
+import java.sql.*;
+public class jdbcdemo {
+	public static void main(String[] args) {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/kirti","root","rakesh");
+			Statement stmt=con.createStatement();
+			ResultSet rs=stmt.executeQuery("select * from emp");
+			while(rs.next())
+			{
+				System.out.println(rs.getInt(1)+" "+rs.getString(2)+rs.getString(3)+" "+rs.getInt(4));
+			}
+			} catch (Exception e) {
+			// TODO: handle exception
+		}}}
+
+
+//insertion
+
+package jdbc;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.sql.*;
+public class jdbcdemo1 {
+	public static void main(String[] args) {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/kirti","root","rakesh");
+			PreparedStatement ps=con.prepareStatement("insert into emp values(?,?,?,?)");
+			BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+			do {
+				System.out.println("Enter Id");;
+				int id=Integer.parseInt(br.readLine());
+				System.out.println("Enter Name");;
+				String name=br.readLine();
+				System.out.println("Enter Address");;
+				String address=br.readLine();
+				System.out.println("Enter age");;
+				int age=Integer.parseInt(br.readLine());
+				ps.setInt(1,id);
+				ps.setString(2,name);
+				ps.setString(3, address);
+				ps.setInt(4,age);
+				
+				int rs=ps.executeUpdate();
+				 System.out.println("do you want to continue yes/no");
+				 String s=br.readLine();
+				 if(s.startsWith("n"))
+				 {
+					 break;
+				 }
+				 }while(true);
+		} catch (Exception e) {
+		e.printStackTrace();
+		}}}
+
+//delete
+package jdbc;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+public class jdbcdelete {
+	public static void main(String[] args) {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/kirti","root","rakesh");
+			PreparedStatement ps=con.prepareStatement("delete from emp where empid=?");
+			BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+			do {
+				System.out.println("Delete Id");;
+				int id=Integer.parseInt(br.readLine());
+				ps.setInt(1,id);
+				int rs=ps.executeUpdate();
+				 System.out.println("do you want to continue yes/no");
+				 String s=br.readLine();
+				 if(s.startsWith("n"))
+				 {
+					 break;
+				 }
+				 }while(true);
+		} catch (Exception e) {
+		e.printStackTrace();
+		}}}
+
+//update
+package jdbc;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+public class jdbcupdate {
+	public static void main(String[] args) {
+try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/kirti","root","rakesh");
+			PreparedStatement ps=con.prepareStatement("update emp set name=?, addresss=?, age=? where empid=?");
+			BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+			   do {
+				System.out.println("Enter Id");
+				int id=Integer.parseInt(br.readLine());
+				System.out.println("Enter Name");;
+				String name=br.readLine();
+				System.out.println("Enter Address");;
+				String address=br.readLine();
+				System.out.println("Enter age");;
+				int age=Integer.parseInt(br.readLine());
+				
+				ps.setString(1,name);
+				ps.setString(2,address);
+				ps.setInt(3,age);
+				ps.setInt(4,id);
+				
+				int rs=ps.executeUpdate();
+				 System.out.println("do you want to continue yes/no");
+				 String s=br.readLine();
+				 if(s.startsWith("n"))
+				 {
+					 break;
+				 }
+				 }while(true);
+		} catch (Exception e) {
+		e.printStackTrace();
+		}}}

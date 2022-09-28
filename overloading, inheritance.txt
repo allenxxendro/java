@@ -1,0 +1,96 @@
+1.a OVERLOADING
+class Student5{  
+    int id;  
+    String name;  
+    int age; 
+    Student5(int i,String n){  
+    id = i;  
+    name = n;  
+    }  
+    Student5(int i,String n,int a){  
+    id = i;  
+    name = n;  
+    age=a;  
+    }  
+    void display(){System.out.println(id+" "+name+" "+age);}  
+   
+    public static void main(String args[]){  
+    Student5 s1 = new Student5(111,"Karan");  
+    Student5 s2 = new Student5(222,"Aryan",25);  
+    s1.display();  
+    s2.display();  
+   }  
+}  
+
+Output:
+111 Karan 0
+222 Aryan 25
+
+METHODOVERLOADING  
+class Vehicle{  
+  void run(){System.out.println("Vehicle is running");}  
+}   
+class Bike2 extends Vehicle{   
+  void run(){System.out.println("Bike is running safely");}  
+  
+  public static void main(String args[]){  
+  Bike2 obj = new Bike2(); 
+  obj.run();
+  }  
+}  
+
+Output:
+Bike is running safely
+
+//static method
+public class calculatestat
+{
+static void cube()
+{
+int x=7*7*7;
+system.out.print("cube of 7 is:"+x)
+}
+public static void main (string []args)
+{
+cube();
+}}
+output::cube of 7:343
+
+1.b INHERITANCE
+class Animal{  
+void eat(){System.out.println("eating...");}  
+}  
+class Dog extends Animal{  
+void bark(){System.out.println("barking...");}  
+}  
+class BabyDog extends Dog{  
+void weep(){System.out.println("weeping...");}  
+}  
+class TestInheritance2{  
+public static void main(String args[]){  
+BabyDog d=new BabyDog();  
+d.weep();  
+d.bark();  
+d.eat();  
+}}  
+
+Output:
+weeping...
+barking...
+eating...
+
+METHOD OVERIDDING 
+class Vehicle{  
+  void run(){System.out.println("Vehicle is running");}  
+}  
+class Bike2 extends Vehicle{  
+  void run(){System.out.println("Bike is running safely");}  
+  
+  public static void main(String args[]){  
+  Bike2 obj = new Bike2();
+  obj.run();
+  }  
+}  
+
+Output:
+Bike is running safely

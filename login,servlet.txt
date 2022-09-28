@@ -1,0 +1,42 @@
+<html>
+
+<head>
+
+<title> TODO Supply a title</title> 
+
+<meta charset=" UTF-8">
+
+<meta name="viewport" content="width=device-width">
+
+</head>
+
+<Body>
+
+<Form action="servl">
+
+username <input hyper="text" name="username" value=""/>
+<br>
+
+password<input=hype="password" name="password" value=" "/>
+<br>
+
+<\form>
+
+</body>
+
+<\html>
+
+Protected void process request 
+(httpservletrequest,httpserletresponse throws serlet exception, to exception{
+
+Response. Set content type ("text/html.chorset=UTF-8")
+
+try (print write out=response. Get writer()}{
+
+String name =request.getparameter("username");
+
+String password =request.getparameter("password");
+
+Out.print/n ("hello kirti");
+
+}}}
